@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("LOG", "asdf onCreate MainActivity.java");
     }
 
 
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
             Intent toJokeActivity = new Intent(MainActivity.this, JokeActivity.class);
             toJokeActivity.putExtra("joke", result);
             startActivity(toJokeActivity);

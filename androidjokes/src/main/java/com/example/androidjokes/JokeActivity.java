@@ -6,13 +6,15 @@ import android.widget.TextView;
 
 public class JokeActivity extends AppCompatActivity {
 
+    // Suggestion from review --> USE A KEY!
+    public static final String KEY_JOKE = "extra.joke";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke);
 
-
-        String joke = getIntent().getExtras().getString("joke");
+        String joke = getIntent().getExtras().getString(KEY_JOKE);
         TextView jokeTextView = (TextView) findViewById(R.id.jokeTextView);
         jokeTextView.setText(joke);
     }

@@ -6,7 +6,7 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
-import com.example.javajokes.MyClass;
+import com.example.javajokes.JokeClass;
 
 /** An endpoint class we are exposing */
 @Api(
@@ -33,7 +33,7 @@ public class MyEndpoint {
     public MyBean sayJoke(){
         MyBean response = new MyBean();
         String newJoke = "test";
-        MyClass myJoker = new MyClass();
+        JokeClass myJoker = new JokeClass();
         newJoke = myJoker.getJoke();
         response.setData(newJoke);
         return response;

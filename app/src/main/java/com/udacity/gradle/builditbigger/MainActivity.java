@@ -19,7 +19,7 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
-
+import com.example.androidjokes.JokeActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 //return myApiService.sayHi(name).execute().getData();
                 return myApiService.sayJoke().execute().getData();
             } catch (IOException e) {
-                return e.getMessage();
+                return "connectionError";
             }
         }
 
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
             Intent toJokeActivity = new Intent(MainActivity.this, JokeActivity.class);
-            toJokeActivity.putExtra("joke", result);
+            toJokeActivity.putExtra(JokeActivity.KEY_JOKE, result);
             startActivity(toJokeActivity);
         }
     }
